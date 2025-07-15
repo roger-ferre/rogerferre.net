@@ -8,8 +8,8 @@
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: #fff;
-            background: #000;
+            color: #000;
+            background: #ffffff;
             scroll-behavior: smooth;
         }
 
@@ -20,6 +20,9 @@
             justify-content: center;
             align-items: center;
             animation: fadeInOut 1s ease-in-out forwards;
+            margin: 15px; /* small outer space to show white background */
+            border-radius: 15px;
+            padding: 20px;
         }
 
         /* Fade animation */
@@ -29,10 +32,23 @@
             100% {opacity: 1;}
         }
 
+        /* Default section background: black with white text */
+        section:not(.light) {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Light sections override */
+        .light {
+            background: #F5F5F7;
+            color: #000;
+        }
+
         /* HERO section */
         .hero {
             background: url('images/background.jpg') center/cover no-repeat;
             position: relative;
+            color: #fff;
         }
 
         .overlay {
@@ -40,6 +56,7 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
         }
 
         .hero-content {
@@ -51,12 +68,6 @@
         .hero-content h1 {
             font-size: 6rem;
             margin: 0;
-        }
-
-        /* Alternate section colors */
-        .light {
-            background: #fff;
-            color: #000;
         }
 
         /* Timeline */
@@ -79,14 +90,14 @@
             min-width: 200px;
         }
 
-        /* Smooth scrolling extra */
-        html {
-            scroll-behavior: smooth;
+        /* Links */
+        a {
+            color: inherit;
+            text-decoration: underline;
         }
 
-        a {
-            color: #fff;
-            text-decoration: underline;
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
