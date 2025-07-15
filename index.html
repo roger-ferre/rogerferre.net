@@ -1,46 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roger Ferré</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background: #f0f0f0;
-      color: #333;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
-    }
-    p {
-      max-width: 600px;
-      text-align: center;
-    }
-    .links a {
-      text-decoration: none;
-      color: #0077cc;
-      margin: 0 10px;
-    }
-    .links a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Roger Ferre</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            transition: background 0.5s, color 0.5s;
+        }
+        h1, h2, h3, p {
+            margin: 0.5rem 0;
+            max-width: 800px;
+            text-align: center;
+        }
+        .white {
+            background: #fff;
+            color: #000;
+        }
+        .black {
+            background: #000;
+            color: #fff;
+        }
+        /* Name section with background image */
+        .hero {
+            background: url('your-photo.jpg') center/cover no-repeat;
+            color: #fff;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+        }
+        .overlay {
+            background: rgba(0,0,0,0.6);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0; left:0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        section.hero {
+            position: relative;
+        }
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: currentColor;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 1rem;
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: currentColor;
+            border-radius: 50%;
+            top: 1rem;
+            right: -10px;
+            z-index: 1;
+        }
+        .timeline-item.right::before {
+            left: -10px;
+            right: auto;
+        }
+        @media (max-width: 768px) {
+            .timeline::after { left: 20px; }
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+            }
+            .timeline-item.right { left: 0; }
+            .timeline-item::before { left: 0; right: auto; }
+        }
+        /* Languages, General */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 0.5rem 0;
+        }
+    </style>
 </head>
 <body>
-  <h1>Roger Ferre</h1>
-  <p>Engineer | Passionate about manufacturing, optimization & innovation.</p>
-  <div class="links">
-    <a href="https://www.linkedin.com/in/roger-ferre-martinez/" target="_blank">LinkedIn</a>
-  </div>
+
+    <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <h1>Roger Ferré</h1>
+        <p>
+            <a href="https://www.linkedin.com/in/roger-ferre-martinez/" 
+               target="_blank" 
+               style="color: #fff; text-decoration: underline; font-size: 1.2rem;">
+               LinkedIn Profile
+            </a>
+        </p>
+    </div>
+    </section>
+
+
+    <section class="black">
+        <h2>Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <h3>Materials, Process & Delivery Manager</h3>
+                <p>July 2023 - Aug 2025, Europe & Global</p>
+            </div>
+            <div class="timeline-item right">
+                <h3>Logistics Process Engineer Manager</h3>
+                <p>Jul 2022 - Jul 2023, Gattatico, Italy</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="white">
+        <h2>Role Details & Skills</h2>
+        <h3>Materials, Process & Delivery Manager</h3>
+        <p>Led operations across 9 countries, drove flagship innovation increasing market by 20%, delivered €100K+ savings on supply chains, built online tools, facilitated cross-functional loss analyses unlocking €11M+ in ideas, and strengthened departmental capabilities.</p>
+        <h3>Logistics Process Engineer Manager</h3>
+        <p>Led €3M+ AGV automation project reducing workload by 16%, improved storage efficiency by 20%, developed tools reducing downtime by 30%, and streamlined staffing workloads by 12%.</p>
+    </section>
+
+    <section class="black">
+        <h2>Languages</h2>
+        <ul>
+            <li>Spanish - Native</li>
+            <li>Catalan - Native</li>
+            <li>English - Proficient (C2)</li>
+            <li>Italian - Advanced (C1)</li>
+        </ul>
+    </section>
+
+    <section class="white">
+        <h2>General Information</h2>
+        <ul>
+            <li>Special Distinction in Mechanical Engineering, 2022–23</li>
+            <li>Best academic trajectory by ENGINYERS BCN</li>
+            <li>Best Thesis of the Year on push-pull strategies in production</li>
+            <li>Volunteer in tutoring & equine therapy for disabled children</li>
+            <li>60% studies funded by merit & need scholarships</li>
+            <li>GMAT: 740 (first attempt)</li>
+            <li>Passionate about Roman history & business books</li>
+        </ul>
+    </section>
+
 </body>
 </html>
