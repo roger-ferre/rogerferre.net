@@ -3,177 +3,144 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Roger Ferre</title>
+    <title>Roger Ferré</title>
     <style>
-        /* Base styles */
         body {
             margin: 0;
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #fff;
+            background: #000;
             scroll-behavior: smooth;
         }
+
         section {
-            min-height: 100vh;
+            min-height: 115vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
-            transition: background 0.5s, color 0.5s;
+            animation: fadeInOut 1s ease-in-out forwards;
         }
-        h1, h2, h3, p {
-            margin: 0.5rem 0;
-            max-width: 800px;
-            text-align: center;
+
+        /* Fade animation */
+        @keyframes fadeInOut {
+            0% {opacity: 0;}
+            50% {opacity: 1;}
+            100% {opacity: 1;}
         }
-        .white {
-            background: #fff;
-            color: #000;
-        }
-        .black {
-            background: #000;
-            color: #fff;
-        }
-        /* Name section with background image */
+
+        /* HERO section */
         .hero {
-            background: url('your-photo.jpg') center/cover no-repeat;
-            color: #fff;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            background: url('images/background.jpg') center/cover no-repeat;
+            position: relative;
         }
+
         .overlay {
-            background: rgba(0,0,0,0.6);
-            width: 100%;
-            height: 100%;
             position: absolute;
-            top:0; left:0;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
         }
+
         .hero-content {
             position: relative;
             z-index: 1;
+            text-align: center;
         }
-        section.hero {
-            position: relative;
+
+        .hero-content h1 {
+            font-size: 6rem;
+            margin: 0;
         }
+
+        /* Alternate section colors */
+        .light {
+            background: #fff;
+            color: #000;
+        }
+
         /* Timeline */
         .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 20px;
         }
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: currentColor;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
+
         .timeline-item {
-            padding: 1rem;
-            position: relative;
-            width: 50%;
+            flex: 0 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
         }
-        .timeline-item.left {
-            left: 0;
+
+        /* Smooth scrolling extra */
+        html {
+            scroll-behavior: smooth;
         }
-        .timeline-item.right {
-            left: 50%;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: currentColor;
-            border-radius: 50%;
-            top: 1rem;
-            right: -10px;
-            z-index: 1;
-        }
-        .timeline-item.right::before {
-            left: -10px;
-            right: auto;
-        }
-        @media (max-width: 768px) {
-            .timeline::after { left: 20px; }
-            .timeline-item {
-                width: 100%;
-                padding-left: 40px;
-            }
-            .timeline-item.right { left: 0; }
-            .timeline-item::before { left: 0; right: auto; }
-        }
-        /* Languages, General */
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 0.5rem 0;
+
+        a {
+            color: #fff;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-        <h1>Roger Ferré</h1>
-        <p>
-            <a href="https://www.linkedin.com/in/roger-ferre-martinez/" 
-               target="_blank" 
-               style="color: #fff; text-decoration: underline; font-size: 1.2rem;">
-               LinkedIn Profile
-            </a>
-        </p>
-    </div>
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Roger Ferré</h1>
+            <p>
+                <a href="https://www.linkedin.com/in/roger-ferre-martinez/" 
+                   target="_blank">
+                   LinkedIn Profile
+                </a>
+            </p>
+        </div>
     </section>
 
+    <section class="education light">
+        <h2>Education</h2>
+        <p>2025 - 2027: MBA at IESE Business School, Barcelona</p>
+        <p>2020 - 2023: BSc Mechanical Engineering at EUSS, Barcelona</p>
+        <p>2019 - 2023: BSc Industrial Management Engineering at EUSS, Barcelona</p>
+        <p>2017 - 2023: BSc Electronic & Automatic Engineering at EUSS, Barcelona</p>
+    </section>
 
-    <section class="black">
+    <section class="experience">
         <h2>Professional Experience</h2>
         <div class="timeline">
-            <div class="timeline-item left">
+            <div class="timeline-item">
                 <h3>Materials, Process & Delivery Manager</h3>
-                <p>July 2023 - Aug 2025, Europe & Global</p>
+                <p>Jul 23 - Aug 25<br>Europe, Asia, Americas</p>
             </div>
-            <div class="timeline-item right">
+            <div class="timeline-item">
                 <h3>Logistics Process Engineer Manager</h3>
-                <p>Jul 2022 - Jul 2023, Gattatico, Italy</p>
+                <p>Jul 22 - Jul 23<br>Gattatico, Italy</p>
             </div>
         </div>
     </section>
 
-    <section class="white">
-        <h2>Role Details & Skills</h2>
-        <h3>Materials, Process & Delivery Manager</h3>
-        <p>Led operations across 9 countries, drove flagship innovation increasing market by 20%, delivered €100K+ savings on supply chains, built online tools, facilitated cross-functional loss analyses unlocking €11M+ in ideas, and strengthened departmental capabilities.</p>
-        <h3>Logistics Process Engineer Manager</h3>
-        <p>Led €3M+ AGV automation project reducing workload by 16%, improved storage efficiency by 20%, developed tools reducing downtime by 30%, and streamlined staffing workloads by 12%.</p>
+    <section class="details light">
+        <h2>Role Highlights</h2>
+        <p><strong>Materials, Process & Delivery Manager:</strong> Managed global supply chains, led technical delivery on flagship innovation driving €500K sales, reduced costs by 4% per site, built online allocation tool, initiated €11M savings ideas.</p>
+        <p><strong>Logistics Process Engineer Manager:</strong> Led €3M+ automation project, improved productivity by 15%, reduced operator workload by 16%, created staffing & downtime tools cutting downtime by 30%.</p>
     </section>
 
-    <section class="black">
+    <section class="languages">
         <h2>Languages</h2>
-        <ul>
-            <li>Spanish - Native</li>
-            <li>Catalan - Native</li>
-            <li>English - Proficient (C2)</li>
-            <li>Italian - Advanced (C1)</li>
-        </ul>
+        <p>Spanish (Native), Catalan (Native), English (C2), Italian (C1)</p>
     </section>
 
-    <section class="white">
+    <section class="info light">
         <h2>General Information</h2>
-        <ul>
-            <li>Special Distinction in Mechanical Engineering, 2022–23</li>
-            <li>Best academic trajectory by ENGINYERS BCN</li>
-            <li>Best Thesis of the Year on push-pull strategies in production</li>
-            <li>Volunteer in tutoring & equine therapy for disabled children</li>
-            <li>60% studies funded by merit & need scholarships</li>
-            <li>GMAT: 740 (first attempt)</li>
-            <li>Passionate about Roman history & business books</li>
-        </ul>
+        <p>Awarded Special Distinction in Mechanical Engineering. Named best academic trajectory by ENGINYERS BCN. Won Best Thesis of the Year on P&G operational strategies. Extensive volunteer work, 740 GMAT. Passionate about business, self-development, and Roman history.</p>
     </section>
 
 </body>
