@@ -6,11 +6,88 @@
 <title>Roger Ferré</title>
 <link rel="icon" type="image/png" href="RF.png">
 <style>
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         margin: 0;
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
         color: #000;
         background: #ffffff;
+        padding-top: 10vh; /* so content isn't hidden behind nav */
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        background: #ffffff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 10vh;
+        max-height: 100px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    nav h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+        color: #555;
+    }
+
+    .burger {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 10vh;
+            right: 0;
+            background: #fff;
+            flex-direction: column;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-links li {
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .burger {
+            display: block;
+        }
     }
 
     section {
@@ -30,13 +107,11 @@
         opacity: 1;
     }
 
-    /* Black sections */
     section:not(.light) {
         background: #000;
         color: #fff;
     }
 
-    /* Light sections */
     .light {
         background: #F5F5F7;
         color: #000;
@@ -44,88 +119,65 @@
 
     /* HERO section */
     .hero {
-    position: relative;
-    color: #000; /* black text on light background */
-    background: #EFEFEF;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.hero-text {
-    flex: 1;
-    padding: 50px;
-    text-align: left;
-}
-
-.hero-text h1 {
-    font-size: 6rem;
-    margin: 0;
-}
-
-.hero-image {
-    flex: 1;
-    padding: 50px;
-    text-align: right;
-}
-
-.hero-image img {
-    max-width: 300px;
-    width: 100%;
-    border-radius: 10px;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero-text, .hero-image {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .hero-text h1 {
-        font-size: 4rem;
-    }
-
-    .hero-image img {
-        max-width: 200px;
-    }
-}
-
-
-    .overlay {
-        position: absolute;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        border-radius: 15px;
+        position: relative;
+        background: #EFEFEF;
     }
 
     .hero-content {
         position: relative;
         z-index: 1;
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .hero-content h1 {
+    .hero-text {
+        flex: 1;
+        padding: 50px;
+        text-align: left;
+    }
+
+    .hero-text h1 {
         font-size: 6rem;
         margin: 0;
     }
 
-    /* Timeline */
+    .hero-image {
+        flex: 1;
+        padding: 50px;
+        text-align: right;
+    }
+
+    .hero-image img {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-text, .hero-image {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+        }
+
+        .hero-image img {
+            max-width: 200px;
+        }
+    }
+
     .timeline {
         display: flex;
         justify-content: center;
@@ -145,7 +197,6 @@
         min-width: 200px;
     }
 
-    /* Links */
     a {
         color: inherit;
         text-decoration: underline;
@@ -154,8 +205,19 @@
 </head>
 <body>
 
+<nav>
+    <h1>Roger Ferré</h1>
+    <div class="burger" onclick="toggleMenu()">&#9776;</div>
+    <ul class="nav-links">
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#details">Highlights</a></li>
+        <li><a href="#languages">Languages</a></li>
+        <li><a href="#info">Info</a></li>
+    </ul>
+</nav>
+
 <section class="hero">
-    <div class="overlay"></div>
     <div class="hero-content">
         <div class="hero-text">
             <h1>Roger Ferré</h1>
@@ -171,7 +233,7 @@
     </div>
 </section>
 
-<section class="education light">
+<section id="education" class="education light">
     <h2>Education</h2>
     <p>2025 - 2027: MBA at IESE Business School, Barcelona</p>
     <p>2020 - 2023: BSc Mechanical Engineering at EUSS, Barcelona</p>
@@ -179,7 +241,7 @@
     <p>2017 - 2023: BSc Electronic & Automatic Engineering at EUSS, Barcelona</p>
 </section>
 
-<section class="experience">
+<section id="experience" class="experience">
     <h2>Professional Experience</h2>
     <div class="timeline">
         <div class="timeline-item">
@@ -193,13 +255,13 @@
     </div>
 </section>
 
-<section class="details light">
+<section id="details" class="details light">
     <h2>Role Highlights</h2>
     <p><strong>Materials, Process & Delivery Manager:</strong> Managed global supply chains, led technical delivery on flagship innovation driving €500K sales, reduced costs by 4% per site, built online allocation tool, initiated €11M savings ideas.</p>
     <p><strong>Logistics Process Engineer Manager:</strong> Led €3M+ automation project, improved productivity by 15%, reduced operator workload by 16%, created staffing & downtime tools cutting downtime by 30%.</p>
 </section>
 
-<section class="languages">
+<section id="languages" class="languages">
     <h2>Languages</h2>
     <p>Spanish (Native)</p>
     <p>Catalan (Native)</p>
@@ -207,30 +269,34 @@
     <p>Italian (C1)</p>
 </section>
 
-<section class="info light">
+<section id="info" class="info light">
     <h2>General Information</h2>
     <p>Awarded Special Distinction in Mechanical Engineering</p>
     <p>Named best academic trajectory by ENGINYERS BCN</p>
     <p>Won Best Thesis of the Year</p>
-    <p>Volunteered at the Johan Cruyff's Forundation</p>
+    <p>Volunteered at the Johan Cruyff's Foundation</p>
     <p>Reached a 740 GMAT</p>
     <p>Passionate about business, self-development, and Roman history</p>
 </section>
 
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
-            }
-        });
-    }, { threshold: 0.3 });
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('show');
+}
 
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+        }
     });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+});
 </script>
 
 </body>
