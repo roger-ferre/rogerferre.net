@@ -43,10 +43,66 @@
 
     /* HERO section */
     .hero {
-        background: url('removed-background.png') center/cover no-repeat;
-        position: relative;
-        color: #fff;
+    position: relative;
+    color: #fff;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-text {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 6rem;
+    margin: 0;
+}
+
+.hero-image {
+    flex: 1;
+    padding: 20px;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
+
+    .hero-text, .hero-image {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 4rem;
+    }
+
+    .hero-image img {
+        max-width: 200px;
+    }
+}
+
 
     .overlay {
         position: absolute;
@@ -99,13 +155,17 @@
 <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
-        <h1>Roger Ferré</h1>
-        <p>
-            <a href="https://www.linkedin.com/in/roger-ferre-martinez/" 
-               target="_blank">
-               LinkedIn Profile
-            </a>
-        </p>
+        <div class="hero-text">
+            <h1>Roger Ferré</h1>
+            <p>
+                <a href="https://www.linkedin.com/in/roger-ferre-martinez/" target="_blank">
+                    LinkedIn Profile
+                </a>
+            </p>
+        </div>
+        <div class="hero-image">
+            <img src="removed-background.png" alt="Roger Ferré" />
+        </div>
     </div>
 </section>
 
