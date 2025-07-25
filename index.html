@@ -6,12 +6,11 @@
 <title>Roger Ferré</title>
 <link rel="icon" type="image/png" href="RF.png">
 <style>
-:root {
+    :root {
     --navy: #0A2342;
     --burnt-orange: #D35400;
     --ivory: #FFFFF0;
     --white: #FFFFFF;
-    --light-gray: #F5F5F5;
     --silver: #C0C0C0;
 }
 
@@ -22,8 +21,8 @@ html {
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: var(--navy);
-    background: var(--white);
+    color: var(--navy); /* deeper, elegant navy for text */
+    background: var(--white); /* clean white background */
     padding-top: 10vh;
     overflow-x: hidden;
 }
@@ -116,26 +115,30 @@ section {
     transition: opacity 1s ease-in-out;
     max-width: 100vw;
     box-sizing: border-box;
-    color: var(--navy);
-    border: 1px solid var(--silver);
-    box-shadow: 0 2px 4px rgba(192,192,192,0.1);
 }
 
 section.visible {
     opacity: 1;
 }
 
-.light {
-    background: var(--ivory);
+section:not(.light) {
+    background: var(--navy);
+    color: var(--ivory);
 }
 
-.alt {
-    background: var(--light-gray);
+section.hero {
+    background: var(--silver);
+    color: var(--navy);
+}
+
+.light {
+    background: var(--ivory);
+    color: var(--navy);
 }
 
 .hero {
-    background: var(--light-gray);
     position: relative;
+    background: var(--silver);
 }
 
 .hero-content {
@@ -207,13 +210,13 @@ section.visible {
 
 .timeline-item {
     flex: 0 0 auto;
-    background: var(--ivory);
+    background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     min-width: 200px;
     border: 1px solid var(--silver);
-    color: var(--navy);
+    color: var(--ivory);
 }
 
 a {
@@ -222,7 +225,7 @@ a {
 }
 
 a:hover {
-    color: var(--navy);
+    color: var(--slate);
 }
 
 @media (max-width: 768px) {
@@ -230,12 +233,12 @@ a:hover {
         flex-wrap: wrap;
         justify-content: center;
     }
-
     .timeline-item {
         min-width: 90vw;
         margin-bottom: 20px;
     }
 }
+
 </style>
 </head>
 <body>
@@ -276,7 +279,7 @@ a:hover {
     <p>2017 - 2023: BSc Electronic & Automatic Engineering at EUSS, Barcelona</p>
 </section>
 
-<section id="experience" class="experience alt">
+<section id="experience" class="experience">
     <h2>Professional Experience</h2>
     <div class="timeline">
         <div class="timeline-item">
@@ -296,7 +299,7 @@ a:hover {
     <p><strong>Logistics Process Engineer Manager:</strong> Led €3M+ automation project, improved productivity by 15%, reduced operator workload by 16%, created staffing & downtime tools cutting downtime by 30%.</p>
 </section>
 
-<section id="languages" class="languages alt">
+<section id="languages" class="languages">
     <h2>Languages</h2>
     <p>Spanish (Native)</p>
     <p>Catalan (Native)</p>
