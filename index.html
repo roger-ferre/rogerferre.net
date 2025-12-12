@@ -3,242 +3,310 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Roger Ferré</title>
-<link rel="icon" type="image/png" href="RF.png">
+<title>Roger Ferré - Portfolio</title>
+<link rel="icon" type="image/png" href="RF.png"> 
 <style>
     :root {
-    --navy: #0A2342;
-    --burnt-orange: #D35400;
-    --ivory: #FFFFF0;
-    --white: #FFFFFF;
-    --silver: #C0C0C0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: var(--navy); /* deeper, elegant navy for text */
-    background: var(--white); /* clean white background */
-    padding-top: 10vh;
-    overflow-x: hidden;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-    background: var(--navy);
-    color: var(--ivory);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 10vh;
-    max-height: 100px;
-    box-shadow: 0 2px 5px var(--silver);
-    z-index: 1000;
-}
-
-nav h1 {
-    font-size: 2rem;
-    margin: 0;
-    color: var(--ivory);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: var(--ivory);
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-links li a:hover {
-    color: var(--burnt-orange);
-}
-
-.burger {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: var(--ivory);
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 10vh;
-        right: 0;
-        background: var(--navy);
-        flex-direction: column;
-        width: 100%;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        --navy: #0A2342;
+        --burnt-orange: #D35400;
+        --ivory: #F9F9F9; /* Slightly brighter for modern look */
+        --white: #FFFFFF;
+        --silver: #E0E0E0; /* Lighter silver for subtlety */
+        --text-grey: #444444;
     }
 
-    .nav-links li {
-        text-align: center;
-        padding: 15px 0;
-        border-bottom: 1px solid var(--silver);
+    html {
+        scroll-behavior: smooth;
     }
 
-    .nav-links.show {
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--navy);
+        background: var(--white);
+        padding-top: 80px; /* Matched to nav height */
+        line-height: 1.6;
+    }
+
+    /* --- Navigation --- */
+    nav {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+        background: var(--navy);
+        color: var(--white);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 80px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+
+    nav h1 {
+        font-size: 1.5rem;
+        margin: 0;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 30px;
+    }
+
+    .nav-links li a {
+        text-decoration: none;
+        color: rgba(255,255,255,0.8);
+        font-size: 0.9rem;
+        transition: color 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .nav-links li a:hover {
+        color: var(--burnt-orange);
     }
 
     .burger {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--white);
+    }
+
+    /* --- Layout Sections --- */
+    section {
+        padding: 80px 5%;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        box-sizing: border-box;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Section Themes */
+    .bg-light {
+        background: var(--ivory);
+        width: 100%;
+        max-width: 100%; /* Full width background */
+    }
+    
+    /* Inner container for full-width sections */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        position: relative;
+        display: inline-block;
+    }
+    
+    h2::after {
+        content: '';
         display: block;
+        width: 50px;
+        height: 3px;
+        background: var(--burnt-orange);
+        margin-top: 10px;
     }
-}
 
-section {
-    min-height: 115vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    border-radius: 15px;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    max-width: 100vw;
-    box-sizing: border-box;
-}
-
-section.visible {
-    opacity: 1;
-}
-
-section:not(.light) {
-    background: var(--navy);
-    color: var(--ivory);
-}
-
-section.hero {
-    background: var(--silver);
-    color: var(--navy);
-}
-
-.light {
-    background: var(--ivory);
-    color: var(--navy);
-}
-
-.hero {
-    position: relative;
-    background: var(--silver);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.hero-text {
-    flex: 1;
-    padding: 50px;
-    text-align: left;
-}
-
-.hero-text h1 {
-    font-size: 6rem;
-    margin: 0;
-    color: var(--navy);
-}
-
-.hero-image {
-    flex: 1;
-    padding: 50px;
-    text-align: right;
-}
-
-.hero-image img {
-    max-width: 300px;
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid var(--silver);
-}
-
-@media (max-width: 768px) {
-    .hero-content {
-        flex-direction: column;
+    /* --- Hero Section --- */
+    .hero {
+        min-height: 80vh; /* Reduced from 115vh */
+        display: flex;
         align-items: center;
-        text-align: center;
+        background: var(--white);
     }
 
-    .hero-text, .hero-image {
-        padding: 10px;
-        text-align: center;
+    .hero-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 40px;
+    }
+
+    .hero-text {
+        flex: 1;
     }
 
     .hero-text h1 {
         font-size: 4rem;
+        margin: 0 0 20px 0;
+        line-height: 1.1;
+        color: var(--navy);
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+        color: var(--text-grey);
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--navy);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .btn:hover {
+        background: var(--burnt-orange);
+    }
+
+    .hero-image {
+        flex: 1;
+        text-align: right;
     }
 
     .hero-image img {
-        max-width: 200px;
+        max-width: 350px;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 20px 20px 0px var(--silver);
     }
-}
 
-.timeline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: 20px;
-}
-
-.timeline-item {
-    flex: 0 0 auto;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    min-width: 200px;
-    border: 1px solid var(--silver);
-    color: var(--ivory);
-}
-
-a {
-    color: var(--burnt-orange);
-    text-decoration: underline;
-}
-
-a:hover {
-    color: var(--slate);
-}
-
-@media (max-width: 768px) {
-    .timeline {
-        flex-wrap: wrap;
-        justify-content: center;
+    /* --- Education & General Lists --- */
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
     }
-    .timeline-item {
-        min-width: 90vw;
-        margin-bottom: 20px;
-    }
-}
 
+    .card {
+        background: var(--white);
+        padding: 30px;
+        border-left: 4px solid var(--navy);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .card h3 {
+        margin-top: 0;
+        color: var(--navy);
+    }
+
+    .date {
+        font-weight: bold;
+        color: var(--burnt-orange);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    /* --- Experience (Vertical) --- */
+    .job-item {
+        margin-bottom: 50px;
+        border-left: 2px solid var(--silver);
+        padding-left: 30px;
+        position: relative;
+    }
+
+    .job-item::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        background: var(--burnt-orange);
+        border-radius: 50%;
+    }
+
+    .job-header h3 {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .job-header span {
+        display: block;
+        color: var(--text-grey);
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+
+    .job-details ul {
+        padding-left: 20px;
+        color: var(--text-grey);
+    }
+
+    .job-details li {
+        margin-bottom: 10px;
+    }
+
+    /* --- Footer --- */
+    footer {
+        background: var(--navy);
+        color: var(--white);
+        text-align: center;
+        padding: 40px;
+    }
+
+    footer a {
+        color: var(--white);
+        margin: 0 10px;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 80px;
+            right: 0;
+            background: var(--navy);
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .nav-links.show {
+            display: flex;
+        }
+
+        .burger {
+            display: block;
+        }
+
+        .hero-content {
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+        
+        .hero-image {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero-image img {
+            max-width: 250px;
+        }
+        
+        section {
+            padding: 40px 5%;
+        }
+    }
 </style>
 </head>
 <body>
@@ -247,23 +315,24 @@ a:hover {
     <h1>Roger Ferré</h1>
     <div class="burger" onclick="toggleMenu()">&#9776;</div>
     <ul class="nav-links">
+        <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="#experience">Work Experience</a></li>
-        <li><a href="#details">Role Highlights</a></li>
-        <li><a href="#languages">Languages</a></li>
-        <li><a href="#info">General Information</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#info">Skills & Awards</a></li>
     </ul>
 </nav>
 
-<section class="hero">
-    <div class="hero-content">
+<section id="about" class="hero">
+    <div class="hero-content container">
         <div class="hero-text">
             <h1>Roger Ferré</h1>
+            <p>MBA Candidate at IESE Business School | Engineer</p>
             <p>
-                <a href="https://www.linkedin.com/in/roger-ferre-martinez/" target="_blank">
-                    LinkedIn Profile
-                </a>
+                <strong>Location:</strong> Barcelona, Spain [cite: 6]<br>
+                <strong>Email:</strong> roger.ferre@iese.net [cite: 2]<br>
+                <strong>Phone:</strong> +34 608 811 453 [cite: 1]
             </p>
+            <a href="https://www.linkedin.com/in/roger-ferre-martinez/" target="_blank" class="btn">LinkedIn Profile [cite: 4]</a>
         </div>
         <div class="hero-image">
             <img src="removed-background.png" alt="Roger Ferré" />
@@ -271,70 +340,128 @@ a:hover {
     </div>
 </section>
 
-<section id="education" class="education light">
-    <h2>Education</h2>
-    <p>2025 - 2027: MBA at IESE Business School, Barcelona</p>
-    <p>2020 - 2023: BSc Mechanical Engineering at EUSS, Barcelona</p>
-    <p>2019 - 2023: BSc Industrial Management Engineering at EUSS, Barcelona</p>
-    <p>2017 - 2023: BSc Electronic & Automatic Engineering at EUSS, Barcelona</p>
-</section>
-
-<section id="experience" class="experience">
-    <h2>Professional Experience</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <h3>Materials, Process & Delivery Manager</h3>
-            <p>Jul 23 - Aug 25<br>Brussels, Belgium</p>
+<div class="bg-light">
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="info-grid">
+                <div class="card">
+                    <span class="date">2025 - 2027</span>
+                    <h3>Master of Business Administration (MBA)</h3>
+                    <p>IESE Business School, Barcelona [cite: 6]</p>
+                </div>
+                <div class="card">
+                    <span class="date">2020 - 2023</span>
+                    <h3>BSc Mechanical Engineering</h3>
+                    <p>Escola Universitària Salesiana de Sarrià (EUSS) [cite: 6]</p>
+                    <p><small>Awarded Special Distinction [cite: 34]</small></p>
+                </div>
+                <div class="card">
+                    <span class="date">2019 - 2023</span>
+                    <h3>BSc Industrial Management Engineering</h3>
+                    <p>Escola Universitària Salesiana de Sarrià (EUSS) [cite: 6]</p>
+                </div>
+                <div class="card">
+                    <span class="date">2017 - 2023</span>
+                    <h3>BSc Electronic & Automatic Engineering</h3>
+                    <p>Escola Universitària Salesiana de Sarrià (EUSS) [cite: 6]</p>
+                </div>
+            </div>
         </div>
-        <div class="timeline-item">
-            <h3>Logistics Process Engineer Manager</h3>
-            <p>Jul 22 - Jul 23<br>Gattatico, Emilia Romagna, Italy</p>
+    </section>
+</div>
+
+<section id="experience">
+    <div class="container">
+        <h2>Professional Experience</h2>
+        <p style="margin-bottom: 40px; color: var(--text-grey);"><strong>Procter & Gamble (P&G)</strong> [cite: 7]</p>
+
+        <div class="job-item">
+            <div class="job-header">
+                <h3>Materials, Process & Delivery Manager</h3>
+                <span>Jul 2023 - Aug 2025 | Brussels, Belgium [cite: 8, 9, 12]</span>
+            </div>
+            <div class="job-details">
+                <ul>
+                    <li>Drove optimization of liquid/substrate processes across 9 contract manufacturers, resulting in 4% spend reduction[cite: 13].</li>
+                    <li>Led technical delivery of flagship innovation in Quick Cleaning Solutions, targeting 20% market penetration increase[cite: 14].</li>
+                    <li>Launched 11 experimental products across four categories, managing sourcing and compliance[cite: 15].</li>
+                    <li>Managed global supply chains resulting in over €100K savings[cite: 16].</li>
+                    <li>Developed Python-based tool decreasing planning time by 70%[cite: 18].</li>
+                    <li>Facilitated loss analysis generating over €11M in savings ideas[cite: 19].</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="job-item">
+            <div class="job-header">
+                <h3>Logistics Process Engineer Manager</h3>
+                <span>Jul 2022 - Jul 2023 | Gattatico, Italy [cite: 10, 21, 22]</span>
+            </div>
+            <div class="job-details">
+                <ul>
+                    <li>Led a +€3M automation project (AGV fleet), projected to reduce operator workload by 16%[cite: 23].</li>
+                    <li>Developed data-based tool for SKU allocation, boosting efficiency by 20%[cite: 24].</li>
+                    <li>Optimized pallet loading and storage, improving operational efficiency by 15%[cite: 25].</li>
+                    <li>Created automated staffing tool reducing staff managers' workload by 12%[cite: 26].</li>
+                    <li>Reduced downtime by 30% through four new data processing tools[cite: 27].</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
 
-<section id="details" class="details light">
-    <h2>Role Highlights</h2>
-    <p><strong>Materials, Process & Delivery Manager:</strong> Managed global supply chains, led technical delivery on flagship innovation driving €500K sales, reduced costs by 4% per site, built online allocation tool, initiated €11M savings ideas.</p>
-    <p><strong>Logistics Process Engineer Manager:</strong> Led €3M+ automation project, improved productivity by 15%, reduced operator workload by 16%, created staffing & downtime tools cutting downtime by 30%.</p>
-</section>
+<div class="bg-light">
+    <section id="info">
+        <div class="container">
+            <h2>General Information</h2>
+            <div class="info-grid">
+                <div class="card">
+                    <h3>Languages</h3>
+                    <p><strong>Spanish:</strong> Native [cite: 28]</p>
+                    <p><strong>Catalan:</strong> Native [cite: 29]</p>
+                    <p><strong>English:</strong> Proficient (C2) [cite: 30]</p>
+                    <p><strong>Italian:</strong> Advanced (C1) [cite: 29]</p>
+                </div>
+                <div class="card">
+                    <h3>Awards & Scores</h3>
+                    <p><strong>GMAT:</strong> 740 (First attempt) [cite: 39]</p>
+                    <p><strong>Thesis:</strong> Best Thesis of the Year ("Push & Pull Strategies") [cite: 36]</p>
+                    <p><strong>Recognition:</strong> Best academic trajectory by ENGINYERS BCN [cite: 35]</p>
+                </div>
+                <div class="card">
+                    <h3>Volunteering & Interests</h3>
+                    <p>Tutored 15 children with Autonomous Solidarity Foundation[cite: 37].</p>
+                    <p>Equine-based therapies with Johan Cruyff Foundation[cite: 38].</p>
+                    <p>Passionate about business, self-development, and Roman history[cite: 40].</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-<section id="languages" class="languages">
-    <h2>Languages</h2>
-    <p>Spanish (Native)</p>
-    <p>Catalan (Native)</p>
-    <p>English (C2)</p>
-    <p>Italian (C1)</p>
-</section>
-
-<section id="info" class="info light">
-    <h2>General Information</h2>
-    <p>Awarded Special Distinction in Mechanical Engineering</p>
-    <p>Named best academic trajectory by ENGINYERS BCN</p>
-    <p>Won Best Thesis of the Year</p>
-    <p>Volunteered at the Johan Cruyff's Foundation</p>
-    <p>Reached a 740 GMAT</p>
-    <p>Passionate about business, self-development, and Roman history</p>
-</section>
+<footer>
+    <p>&copy; 2025 Roger Ferré</p>
+</footer>
 
 <script>
-function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('show');
-}
+    // Mobile Menu Toggle
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('show');
+    }
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('visible');
-        } else {
-            entry.target.classList.remove('visible');
-        }
+    // Intersection Observer for Fade-in Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
     });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
-});
 </script>
 
 </body>
